@@ -31,19 +31,38 @@ $('#nav').affix({
 	$(document).scroll(function(){
 		var top = $('#skills').height()-$(window).scrollTop();
 		console.log(top)
-		if(top<-300){
-			if(index==0){	
-			
-				$('.chart').easyPieChart({
-					easing: 'easeOutBounce',
-					onStep: function(from, to, percent) {
-						$(this.el).find('.percent').text(Math.round(percent));
-					}
-				});
-			
-				}
-			index++;
-		}
+    var mediaquery = window.matchMedia("(max-width: 600px)");
+    if (mediaquery.matches) {
+      if(top<250){
+        if(index==0){ 
+        
+          $('.chart').easyPieChart({
+            easing: 'easeOutBounce',
+            onStep: function(from, to, percent) {
+              $(this.el).find('.percent').text(Math.round(percent));
+            }
+          });
+        
+          }
+        index++;
+      }
+    } else {
+      // mediaquery no es 600
+      if(top<-300){
+        if(index==0){ 
+        
+          $('.chart').easyPieChart({
+            easing: 'easeOutBounce',
+            onStep: function(from, to, percent) {
+              $(this.el).find('.percent').text(Math.round(percent));
+            }
+          });
+        
+          }
+        index++;
+      }
+    }
+		
 	})
 	//console.log(nagativeValue)
 	});
