@@ -30,7 +30,7 @@ $('#nav').affix({
 	var index=0;
 	$(document).scroll(function(){
 		var top = $('#skills').height()-$(window).scrollTop();
-		console.log(top)
+		//console.log(top)
     var mediaquery = window.matchMedia("(max-width: 600px)");
     if (mediaquery.matches) {
       if(top<250){
